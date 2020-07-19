@@ -21,7 +21,7 @@ public class UserServiceController {
         return userServiceFeignClient.users();
     }
 
-    @PostMapping("/suer")
+    @PostMapping("/user")
     public String insert(){
         UserDto userDto = new UserDto();
         return userServiceFeignClient.insert(userDto);
