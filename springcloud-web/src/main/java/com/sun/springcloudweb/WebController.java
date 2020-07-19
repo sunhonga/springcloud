@@ -25,7 +25,7 @@ public class WebController {
     }
 
 
-    @GetMapping("/user/{id}")
+    @GetMapping("/order/{id}")
     public String findById(@PathVariable("id") int id){
         ServiceInstance choose = loadBalancerClient.choose("spring-cloud-order-service");
         String url = String.format("http://%s:%s",choose.getHost(),choose.getPort()+"/orders");
