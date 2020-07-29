@@ -4,14 +4,14 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.sun</groupId>
-        <artifactId>springcloud</artifactId>
+        <artifactId>springcloud-user</artifactId>
         <version>1.0-SNAPSHOT</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.sun</groupId>
-    <artifactId>springcloud</artifactId>
+    <artifactId>springcloud-user-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springcloud</name>
+    <name>springcloud-user-service</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -27,9 +27,11 @@
 
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>com.sun</groupId>
+            <artifactId>springcloud-user-api</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>

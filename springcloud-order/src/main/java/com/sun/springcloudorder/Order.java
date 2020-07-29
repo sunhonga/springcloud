@@ -14,6 +14,6 @@ public class Order {
     @GetMapping("orders")
     public String getOrder(){
         System.out.println(port);
-        return "GET ALL ORDERS";
+        return "端口号为"+port+"返回的数据：GET ALL ORDERS";
     }
 }
