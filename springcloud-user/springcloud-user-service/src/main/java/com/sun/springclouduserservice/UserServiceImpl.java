@@ -1,9 +1,8 @@
 package com.sun.springclouduserservice;
 
 import com.sun.springclouduserapi.User;
-import com.sun.springclouduserapi.UserSerivce;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import com.sun.springclouduserapi.feignclients.UserServiceFeignClient;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -13,10 +12,15 @@ import org.springframework.web.bind.annotation.RestController;
  * Date 2020-7-21 15:00
  **/
 @RestController
-public class UserServiceImpl implements UserSerivce {
+public class UserServiceImpl implements UserServiceFeignClient {
+
+    @Value("${server.port}")
+    private int port;
+
+
     @Override
     public String users() {
-        return "Return all Orders";
+        return "Return all Orders"+this.port;
     }
 
 
