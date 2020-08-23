@@ -1,6 +1,7 @@
 package com.sun.ribbonstandaloneuserservice;
 
-import com.sun.ribbonstandaloneuserservice.feignclient.GuPiaoClient;
+import com.sun.ribbonstandaloneuserservice.feignclient.AddrCityClient;
+import com.sun.ribbonstandaloneuserservice.feignclient.AddrProvinceClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
@@ -23,9 +24,17 @@ public class UserServiceController {
     @Autowired
     RestTemplate restTemplate;
 
-    @Autowired
-    GuPiaoClient guPiaoClient;
+    /*@Autowired
+    GuPiaoClient guPiaoClient;*/
 
+    /*@Autowired
+    IAddrClient iAddrClient;
+*/
+    @Autowired
+    AddrCityClient addrCityClient;
+
+    @Autowired
+    AddrProvinceClient addrProvinceClient;
 
 
     @Bean
@@ -42,9 +51,14 @@ public class UserServiceController {
     }
 
 
-    @GetMapping("/getgupiao")
+   /* @GetMapping("/userordergupiao")
     public String getGuPiao(){
         return guPiaoClient.getGuPiao();
-    }
+    }*/
 
+
+    @GetMapping("/useraddr")
+    public String getUuerAddr(){
+        return addrCityClient.getAddrByCity()+addrProvinceClient.getAddrByProvince();
+    }
 }

@@ -1,7 +1,7 @@
 package com.sun.springclouduserservice;
 
 import com.sun.springclouduserapi.User;
-import com.sun.springclouduserapi.feignclients.UserServiceFeignClient;
+import com.sun.springclouduserapi.api.IUserService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
  * Date 2020-7-21 15:00
  **/
 @RestController
-public class UserServiceImpl implements UserServiceFeignClient {
+public class UserServiceImpl implements IUserService {
 
     @Value("${server.port}")
     private int port;
@@ -20,7 +20,7 @@ public class UserServiceImpl implements UserServiceFeignClient {
 
     @Override
     public String users() {
-        return "Return all Orders"+this.port;
+        return this.port+"Return all Orders";
     }
 
 

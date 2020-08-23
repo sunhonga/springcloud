@@ -1,6 +1,8 @@
-package com.sun.springcloudweb;
+package com.sun.springcloudweb.controller;
 
 
+import com.sun.springcloudweb.feignclients.OrderServiceClient;
+import com.sun.springcloudweb.feignclients.UserServiceClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
@@ -25,6 +27,12 @@ public class WebController {
     }
 
 
+    @Autowired
+    private OrderServiceClient orderService;
+
+    @Autowired
+    private UserServiceClient userService;
+
     @GetMapping("/order/{id}")
     public String findById(@PathVariable("id") int id){
         //method1:
@@ -36,4 +44,13 @@ public class WebController {
         //method3:
         return restTemplate.getForObject("http://order-service/orders",String.class);
     }
+
+
+
+    @GetMapping("/getuserorder")
+    String getUserOrder(){
+
+        return userService.users()+orderService.getAllOrder();
+    }
+
 }

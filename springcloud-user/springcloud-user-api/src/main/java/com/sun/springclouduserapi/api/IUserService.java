@@ -1,4 +1,4 @@
-package com.sun.springclouduserapi.feignclients;
+package com.sun.springclouduserapi.api;
 
 
 import com.sun.springclouduserapi.User;
@@ -6,8 +6,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-@FeignClient("user-service")
-public interface UserServiceFeignClient  {
+public interface IUserService {
 
 
     @GetMapping("/users")

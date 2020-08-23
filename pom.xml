@@ -10,7 +10,6 @@
   <version>1.0-SNAPSHOT</version>
   <modules>
     <module>springcloud-eureka-service</module>
-    <module>springcloud-order</module>
     <module>springcloud-user</module>
     <module>springcloud-web</module>
     <module>ribbon-standalone</module>
