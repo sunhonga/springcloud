@@ -12,7 +12,9 @@
     <module>springcloud-eureka-service</module>
     <module>springcloud-user</module>
     <module>springcloud-web</module>
+    <module>springcloud-order</module>
     <module>ribbon-standalone</module>
+    <module>springcloud-gateway</module>
   </modules>
 
 
