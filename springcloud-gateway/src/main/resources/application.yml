@@ -31,10 +31,25 @@ spring:
           filters:
             - StripPrefix=1
           uri: lb://ORDER-SERVICE
+        - id: ratelimiter_route
+          predicates:
+            - Path=/ratelimiter/**
+          filters:
+            - name: RequestRateLimiter
+              args:
+                deny-empty-key: true
+                keyResolver: '#{@ipAddressKeyResolver}'
+                redis-rate-limiter.replenishRate: 1
+
+                redis-rate-limiter.burstCapacity: 2
+          uri: lb://order-service
       discovery:
         locator:
           enabled: true
           lower-case-service-id: true
+  redis:
+    host: 127.0.0.1
+    port: 6379
 eureka:
   client:
     service-url:
